@@ -1,6 +1,6 @@
 'use strict';
 
-adsApp.factory('adsData', function($http, $q, $log){
+adsApp.factory('adsData', function($http, $q){
     return{
         getAll: function(){
             var url = 'http://softuni-ads.azurewebsites.net/api/ads';
