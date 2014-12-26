@@ -1,23 +1,19 @@
-<aside class="col-md-2 pull-right">
+<aside class="col-md-2 pull-right" ng-controller="CategoriesController">
     <div class="panel panel-default">
         <div class="panel-heading"><h5>Category</h5></div>
         <div class="panel-body">
             <ul class="nav nav-pills nav-stacked">
-                <li><a href="#">Electronics</a></li>
-                <li><a href="#">Outdoors</a></li>
-                <li><a href="#">Home and kitchen</a></li>
+                <li ng-repeat="category in categories" id="{{category.id}}"><a href="#">{{ category.name }}</a></li>
             </ul>
         </div>
     </div>
 </aside>
-<aside class="col-md-2 pull-right">
+<aside class="col-md-2 pull-right" ng-controller="TownsController">
     <div class="panel panel-default">
         <div class="panel-heading"><h5>Town</h5></div>
         <div class="panel-body">
             <ul class="nav nav-pills nav-stacked">
-                <li><a href="#">Sofia</a></li>
-                <li><a href="#">Stara Zagora</a></li>
-                <li><a href="#">Burgas</a></li>
+                <li ng-repeat="town in towns" id="{{town.id}}"><a href="#">{{ town.name }}</a></li>
             </ul>
         </div>
     </div>

@@ -7,6 +7,7 @@ adsApp.service('session', function ($cookieStore) {
             $cookieStore.put('username', username);
         },
         get: function(){
+            console.log($cookieStore.get('username'));
             return {access_token: $cookieStore.get('access_token'), username: $cookieStore.get('username')};
         },
         destroy: function(){

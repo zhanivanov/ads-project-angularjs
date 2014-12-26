@@ -20,8 +20,8 @@ adsApp.factory('authService', function ($http, $q, session) {
 
                 return defer.promise;
             },
-            isAuthenticated: function(){
-                return !!session.get().username;
+            register: function(credentials){
+                //TODO:
             }
         }
 })
