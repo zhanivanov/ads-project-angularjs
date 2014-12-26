@@ -14,15 +14,20 @@
                 <div class="navbar-header">
                     <a class="navbar-brand" href="#">Ads</a>
                 </div>
+                <ul class="nav navbar-nav" ng-if="currentUser.username">
+                    <li class="dropdown open">
+                        <a href="" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">Hello, {{ currentUser.username }}! <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">View profile</a></li>
+                            <li ng-click="logout()"><a href="">Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
                 <div class="navbar-collapse collapse navbar-inverse-collapse pull-right">
                     <form class="navbar-form navbar-left">
                         <input type="text" class="form-control col-lg-8" placeholder="Search">
                     </form>
                 </div>
-            </div>
-            <div class="">{{ currentUser.username }}</div>
-            <div>
-                <button class="btn btn-warning pull-right" ng-controller="LogoutController" ng-if="currentUser.username" ng-click="logout()">Logout</button>
             </div>
         </header>
         <div id="main-aside" class="row" ng-view="" ng-controller="ViewsController">

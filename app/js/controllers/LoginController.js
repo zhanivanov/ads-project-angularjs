@@ -1,7 +1,7 @@
 'use strict';
 
 adsApp.controller('LoginController',
-    function LoginController($scope, authService, $location){
+    function LoginController($scope, authService, $location, $window){
         $scope.credentials = {
             username: '',
             password: ''
@@ -10,6 +10,7 @@ adsApp.controller('LoginController',
             authService.login(credentials)
                 .then(function (user) {
                     $location.path('/');
+                    $window.location.reload();
             });
         };
     }
