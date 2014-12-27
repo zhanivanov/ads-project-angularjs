@@ -21,7 +21,24 @@ adsApp.factory('authService', function ($http, $q, session) {
                 return defer.promise;
             },
             register: function(credentials){
-                //TODO:
+                $http({method: 'POST', url: url, data:{
+                    "name": credentials.name,
+                    "email": credentials.email,
+                    "phone": credentials.phone,
+                    "townId": credentials.townId,
+                    "username": credentials.username,
+                    "password": credentials.password,
+                    "confirmPassword": credentials.confirmPassword
+                }})
+                    .success(function(data, status, headers, config){
+                        defer.resolve(data);
+                        session.create(data.access_token, data.username);
+                    })
+                    .error(function(data, status, headers, config){
+                        defer.reject(data);
+                    });
+
+                return defer.promise;
             }
         }
 })

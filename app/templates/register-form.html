@@ -1,31 +1,31 @@
 <div class="well bs-component">
-    <form class="form-horizontal authentication-form" ng-controller="LoginController">
+    <form class="form-horizontal authentication-form" ng-controller="RegisterController" ng-submit="register(credentials)">
         <fieldset>
             <legend>Register</legend>
             <div class="form-group">
                 <label for="inputName" class="col-lg-2 control-label">Name:</label>
                 <div class="col-lg-10">
-                    <input type="text" class="form-control" id="inputName" placeholder="Name">
+                    <input type="text" class="form-control" id="inputName" placeholder="Name" ng-model="credentials.name">
                 </div>
             </div>
             <div class="form-group">
                 <label for="inputEmail" class="col-lg-2 control-label">Email:</label>
                 <div class="col-lg-10">
-                    <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+                    <input type="email" class="form-control" id="inputEmail" placeholder="Email" ng-model="credentials.email">
                 </div>
             </div>
             <div class="form-group">
                 <label for="inputPhone" class="col-lg-2 control-label">Phone:</label>
                 <div class="col-lg-10">
-                    <input type="text" class="form-control" id="inputPhone" placeholder="Phone">
+                    <input type="text" class="form-control" id="inputPhone" placeholder="Phone" ng-model="credentials.phone">
                 </div>
             </div>
             <div class="form-group">
                 <label for="select" class="col-lg-2 control-label">Town</label>
                 <div class="col-lg-10">
-                    <select class="form-control" id="select">
+                    <select class="form-control" id="select" ng-controller="TownsController" ng-model="credentials.townId">
                         <option value="" disabled selected>Select your option</option>
-                        <option ng-repeat="town in towns">{{ town }}</option>
+                        <option ng-repeat="town in towns" value="{{ town.id }}">{{ town.name }}</option>
                     </select>
                 </div>
             </div>
@@ -35,19 +35,19 @@
             <div class="form-group">
                 <label for="inputUsername" class="col-lg-2 control-label">Username:</label>
                 <div class="col-lg-10">
-                    <input type="text" class="form-control" id="inputUsername" placeholder="Username">
+                    <input type="text" class="form-control" id="inputUsername" placeholder="Username" ng-model="credentials.username">
                 </div>
             </div>
             <div class="form-group">
                 <label for="inputPassword" class="col-lg-2 control-label">Password:</label>
                 <div class="col-lg-10">
-                    <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+                    <input type="password" class="form-control" id="inputPassword" placeholder="Password" ng-model="credentials.password">
                 </div>
             </div>
             <div class="form-group">
                 <label for="inputConfirmPassword" class="col-lg-2 control-label">Confirm password:</label>
                 <div class="col-lg-10">
-                    <input type="password" class="form-control" id="inputConfirmPassword" placeholder="Confirm password">
+                    <input type="password" class="form-control" id="inputConfirmPassword" placeholder="Confirm password" ng-model="credentials.confirmPassword">
                 </div>
             </div>
             <div class="form-group">

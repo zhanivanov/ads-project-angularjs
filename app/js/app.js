@@ -1,7 +1,7 @@
 'use strict';
 
 var adsApp = angular
-    .module('adsApp', ['ngRoute', 'ngCookies'])
+    .module('adsApp', ['ngRoute', 'ngCookies', 'angular-growl'])
     .config(function($routeProvider) {
         $routeProvider
             .when('/', {
