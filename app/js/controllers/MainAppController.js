@@ -2,6 +2,7 @@
 
 adsApp.controller('MainAppController',
     function MainAppController($scope, session, growl){
+        var validatedInputs = [];
         $scope.currentUser = session.get();
 
         $scope.nameRegex = /^[A-z ,.'-]+$/;
@@ -11,16 +12,23 @@ adsApp.controller('MainAppController',
 
 
         $scope.isValid = isValid;
+        $scope.clearValidatedInputs = clearValidatedInputs;
         $scope.verifyPassword = verifyPassword;
         $scope.disabled = 'disabled';
 
 
         function isValid(isValid, name){
-            console.log(isValid);
+            validatedInputs.push('valid' + capitaliseFirstLetter(name));
             if(isValid){
                 $scope['valid' + capitaliseFirstLetter(name)] = 'has-success';
             } else{
                 $scope['valid' + capitaliseFirstLetter(name)] = 'has-error';
+            }
+        }
+
+        function clearValidatedInputs(){
+            for(var i = 0; i < validatedInputs.length; i++){
+                $scope[validatedInputs[i]] = '';
             }
         }
 

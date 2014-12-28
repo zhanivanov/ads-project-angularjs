@@ -11,12 +11,12 @@ adsApp.controller('RegisterController',
             password: '',
             confirmPassword: ''
         };
-        $scope.register = function (credentials) {
+        $scope.registerUser = function (credentials) {
             authService.register(credentials)
                 .then(function (user) {
                     growl.success("Succesful registration!");
-                    //$location.path('/');
-                    //$window.location.reload();
+                    $location.path('/');
+                    $window.location.reload();
                 });
         };
     }

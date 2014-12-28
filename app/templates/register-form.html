@@ -1,5 +1,5 @@
 <div class="well bs-component">
-    <form name="register" class="form-horizontal authentication-form" ng-controller="RegisterController" ng-submit="register(credentials)">
+    <form name="register" class="form-horizontal authentication-form" ng-controller="RegisterController" ng-submit="registerUser(credentials)">
         <fieldset>
             <legend>Register</legend>
             <div class="form-group" ng-class="validName">
@@ -20,10 +20,10 @@
                     <input type="text" name="inputPhone" class="form-control" ng-blur="isValid(register.inputPhone.$valid, 'phone')" ng-pattern="phoneRegex" required id="inputPhone" placeholder="Phone" ng-model="credentials.phone">
                 </div>
             </div>
-            <div class="form-group">
+            <div class="form-group" ng-class="validTown">
                 <label for="select" class="col-lg-2 control-label">Town</label>
                 <div class="col-lg-10">
-                    <select class="form-control" required id="select" ng-controller="TownsController" ng-model="credentials.townId">
+                    <select class="form-control" name="inputTown" ng-blur="isValid(register.inputTown.$valid, 'town')" required id="select" ng-controller="TownsController" ng-model="credentials.townId">
                         <option value="" disabled selected>Select your option</option>
                         <option ng-repeat="town in towns" value="{{ town.id }}">{{ town.name }}</option>
                     </select>
@@ -52,7 +52,7 @@
             </div>
             <div class="form-group">
                 <div class="col-lg-10 col-lg-offset-2">
-                    <a href="#/" class="btn btn-default">Cancel</a>
+                    <a href="#/" class="btn btn-default" ng-click="clearValidatedInputs()">Cancel</a>
                     <button type="submit" class="btn btn-success" ng-disabled="disabled">Register</button>
                 </div>
             </div>

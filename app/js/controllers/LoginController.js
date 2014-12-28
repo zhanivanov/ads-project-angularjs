@@ -10,8 +10,8 @@ adsApp.controller('LoginController',
             authService.login(credentials)
                 .then(function (user) {
                     growl.success("Succesful login!");
-                    //$location.path('/');
-                    //$window.location.reload();
+                    $location.path('/');
+                    $window.location.reload();
             },
             function(error){
                 growl.error(error.errorText);

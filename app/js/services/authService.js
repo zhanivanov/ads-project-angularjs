@@ -2,11 +2,11 @@
 
 adsApp.factory('authService', function ($http, $q, session) {
         var defer = $q.defer();
-        var url = 'http://softuni-ads.azurewebsites.net/api/user/login';
+        var url = 'http://softuni-ads.azurewebsites.net/api/user/';
 
         return{
             login: function(credentials) {
-                $http({method: 'POST', url: url, data:{
+                $http({method: 'POST', url: url + 'login', data:{
                     "username": credentials.username,
                     "password": credentials.password
                 }})
@@ -21,7 +21,7 @@ adsApp.factory('authService', function ($http, $q, session) {
                 return defer.promise;
             },
             register: function(credentials){
-                $http({method: 'POST', url: url, data:{
+                $http({method: 'POST', url: url + 'register', data:{
                     "name": credentials.name,
                     "email": credentials.email,
                     "phone": credentials.phone,
