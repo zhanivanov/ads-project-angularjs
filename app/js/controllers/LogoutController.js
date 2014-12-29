@@ -1,14 +1,22 @@
 'use strict';
 
 adsApp.controller('LogoutController',
-    function LogoutController($scope, session, $location){
+    function LogoutController($scope, session, $location, $rootScope, notifications, authService){
         $scope.logout = logout;
 
 
         function logout(){
-            session.destroy();
-            $location.path('/');
-            window.location.reload();
+            authService.logout(function(data){
+                $location.path('/');
+                session.destroy();
+                $rootScope.$broadcast("loggedOut");
+                notifications.info("Successfully logged out!");
+                //window.location.reload();
+            },
+            function(error){
+                //console.log(error);
+            })
+
         }
     }
 )

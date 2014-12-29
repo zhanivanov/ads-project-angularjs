@@ -8,7 +8,9 @@ adsApp.controller('ViewsController',
             "allAdsMain": "../app/templates/list-ads.html",
             "townsAside": "../app/templates/categories-towns-aside.html",
             "loginForm": "../app/templates/login-form.html",
-            "registerForm": "../app/templates/register-form.html"
+            "registerForm": "../app/templates/register-form.html",
+            "addNewAd": "../app/templates/add-new-ad-template.html",
+            "myAdsAside": "../app/templates/my-ads-aside.html"
         }
     }
 )

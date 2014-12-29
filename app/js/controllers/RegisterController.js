@@ -1,7 +1,7 @@
 'use strict';
 
 adsApp.controller('RegisterController',
-    function RegisterController($scope, authService, $location, $window, growl){
+    function RegisterController($scope, authService, $location, $window, notifications, $rootScope){
         $scope.credentials = {
             name: '',
             email: '',
@@ -12,12 +12,20 @@ adsApp.controller('RegisterController',
             confirmPassword: ''
         };
         $scope.registerUser = function (credentials) {
-            authService.register(credentials)
-                .then(function (user) {
-                    growl.success("Succesful registration!");
-                    $location.path('/');
-                    $window.location.reload();
-                });
+            authService.register(credentials,
+                function(data){
+                notifications.success("Successful registration!");
+                $rootScope.$broadcast("userLoggedOrRegistered");
+                $location.path('/');
+            },
+                function(data){
+                    var msg = "Some error occurred!";
+                    if(data.modelState[""] !== undefined){
+                        msg = data.modelState[""];
+                    }
+                    notifications.error(msg);
+                }
+            )
         };
     }
 )

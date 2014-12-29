@@ -27,7 +27,7 @@
                 </ul>
                 <div class="navbar-collapse collapse navbar-inverse-collapse pull-right">
                     <form class="navbar-form navbar-left">
-                        <input type="text" class="form-control col-lg-8" placeholder="Search">
+                        <input type="text" class="form-control col-lg-8" placeholder="Search" ng-model="search">
                     </form>
                 </div>
             </div>
@@ -35,7 +35,6 @@
         <div id="main-aside" class="row" ng-view="" ng-controller="ViewsController">
 
         </div>
-        <div growl=""></div>
         <footer class="text-center">
             <hr/>
             <p>Author:
@@ -50,14 +49,16 @@
     <script src="lib/angular/angular.js"></script>
     <script src="lib/angular/angular-cookies.js"></script>
     <script src="lib/angular/angular-route.js"></script>
-    <script src="lib/angular-growl.js"></script>
+    <script src="lib/noty-2.3.3/js/noty/packaged/jquery.noty.packaged.js"></script>
     <script src="lib/bootstrap.js"></script>
     <script src="js/app.js"></script>
     <script src="js/services/adsData.js"></script>
+    <script src="js/services/notifications.js"></script>
     <script src="js/services/session.js"></script>
     <script src="js/services/authService.js"></script>
     <script src="js/services/categoriesData.js"></script>
     <script src="js/services/townsData.js"></script>
+    <script src="js/services/fileReader.js"></script>
     <script src="js/controllers/MainAppController.js"></script>
     <script src="js/controllers/ListAdsController.js"></script>
     <script src="js/controllers/ViewsController.js"></script>
@@ -66,7 +67,11 @@
     <script src="js/controllers/LogoutController.js"></script>
     <script src="js/controllers/CategoriesController.js"></script>
     <script src="js/controllers/TownsController.js"></script>
-
+    <script src="js/controllers/UploadController.js"></script>
+    <script src="js/controllers/NewAdController.js"></script>
+    <script src="js/filters/categoriesFilter.js"></script>
+    <script src="js/filters/townsFilter.js"></script>
+    <script src="js/directives/ngFileSelect.js"></script>
 
 </body>
 </html>
