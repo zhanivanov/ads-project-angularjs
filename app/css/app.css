@@ -14,6 +14,11 @@
     background-color: #f9f9f9;
 }
 
+.ad-info{
+    padding-right: 3%;
+    padding-left: 3%;
+}
+
 .ads-panel section div.ad-info div{
     margin-top: 2%;
     background: #F9F9F9;
@@ -70,6 +75,24 @@
     left: 0;
 }
 
+.ad-status{
+    padding-left: 3%;
+    padding-bottom: 10%;
+    border-left: solid 2px #2196F3;
+}
+
+.display{
+    display: block;
+}
+
+.not-display{
+    display: none;
+}
+
+/*.waiting-approval{*/
+    /*border: 1px solid #FF9800;*/
+    /*color: #FF9800;*/
+/*}*/
 /*input.ng-valid.ng-dirty.form-validation{*/
      /*box-shadow: inset 0 -2px 0 #4caf50;*/
 /*}*/

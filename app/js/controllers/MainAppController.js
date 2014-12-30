@@ -1,7 +1,7 @@
 'use strict';
 
 adsApp.controller('MainAppController',
-    function MainAppController($scope, session, $rootScope){
+    function MainAppController($scope, session, $rootScope, notifications, $window){
         var validatedInputs = [];
         $rootScope.$on("userLoggedOrRegistered", function(){
             $scope.currentUser = session.get();
