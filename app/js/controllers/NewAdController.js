@@ -1,7 +1,7 @@
 'use strict';
 
 adsApp.controller('NewAdController',
-    function NewAdController($scope, authService){
+    function NewAdController($scope, authService, notifications, $rootScope, $location){
         $scope.publish = publishAd;
 
         function publishAd(details, imageSrc){
@@ -11,10 +11,12 @@ adsApp.controller('NewAdController',
                 'ads',
                 details,
                 function(data){
-                    console.log(data);
+                    $rootScope.$broadcast('added');
+                    $location.path('/myads');
+                    notifications.success("Ad created successfully!");
                 },
                 function(error){
-                    console.log(error);
+                    notifications.error(error.modelState['model.Text']);
                 }
             )
         }

@@ -1,6 +1,6 @@
 'use strict';
 
-adsApp.factory('authService', function ($http, session) {
+adsApp.factory('authService', function ($http, session, $q) {
         var url = 'http://softuni-ads.azurewebsites.net/api/user/';
 
         return{

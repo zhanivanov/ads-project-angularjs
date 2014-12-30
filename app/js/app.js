@@ -19,4 +19,7 @@ var adsApp = angular
             .when('/myads', {
                 templateUrl: '../app/templates/MyAdsPage.html'
             })
+            .when('/editad', {
+                templateUrl: '../app/templates/editAdPage.html'
+            })
     });

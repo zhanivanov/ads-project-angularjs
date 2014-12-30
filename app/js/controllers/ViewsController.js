@@ -11,7 +11,9 @@ adsApp.controller('ViewsController',
             "loginForm": "../app/templates/login-form.html",
             "registerForm": "../app/templates/register-form.html",
             "addNewAd": "../app/templates/add-new-ad-template.html",
-            "myAdsAside": "../app/templates/my-ads-aside.html"
+            "myAdsAside": "../app/templates/my-ads-aside.html",
+            "editAd": "../app/templates/edit-ad-form.html",
+            "confirmDelete": "../app/templates/confirm-delete.html"
         }
     }
 )

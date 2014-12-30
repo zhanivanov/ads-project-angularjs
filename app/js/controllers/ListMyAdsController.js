@@ -5,15 +5,7 @@ adsApp.controller('ListMyAdsController',
 
         listAll();
 
-        $rootScope.$on('deactivated', function(){
-            listAll();
-        });
-
-        $rootScope.$on('publishedAgain', function(){
-            listAll();
-        });
-
-        $rootScope.$on('deleted', function(){
+        $rootScope.$on('added', function(){
             listAll();
         });
 
@@ -21,7 +13,6 @@ adsApp.controller('ListMyAdsController',
             adsData.getAll(true)
                 .then(function (data) {
                     $scope.ads = data.ads;
-                    console.log(data.ads);
                 })
         }
     }

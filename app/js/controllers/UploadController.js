@@ -2,6 +2,7 @@
 
 adsApp.controller('UploadController',
     function UploadController($scope, fileReader, $rootScope){
+        $rootScope.imgSrc = undefined;
         $scope.getFile = function () {
             fileReader.readAsDataUrl($scope.file, $scope)
                 .then(function(result) {

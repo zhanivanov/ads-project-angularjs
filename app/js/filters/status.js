@@ -5,17 +5,21 @@ adsApp.filter('status',function(){
         var element = $('#' + id + ' .panel');
         var deactivateBtn = $('#' + id + ' .btn-warning');
         var editBtns = [
-            $('#' + id + ' .btn-primary'),
-            $('#' + id + ' .btn-success'),
-            $('#' + id + ' .btn-danger')
+            $('#' + id + ' .primary'),
+            $('#' + id + ' .success'),
+            $('#' + id + ' .danger')
         ];
         switch (input){
             case "WaitingApproval":
-                element.addClass("panel-warning");
+                element.removeClass("panel-danger").addClass("panel-warning");
                 deactivateBtn.removeClass('not-display').addClass('display');
+                editBtns.forEach(function(btn){
+                    btn.removeClass('display').addClass('not-display');
+                });
                 return "Waiting Approval";
             case "Inactive":
-                element.addClass("panel-danger");
+                element.removeClass("panel-warning").addClass("panel-danger");
+                deactivateBtn.removeClass('display').addClass('not-display');
                 editBtns.forEach(function(btn){
                     btn.removeClass('not-display').addClass('display');
                 });

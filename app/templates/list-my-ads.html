@@ -1,52 +1,49 @@
-<main class="col-md-10">
-    <div id="content" class="jumbotron">
-        <div class="ads-panel" ng-controller="ListMyAdsController">
-            <div class="panel panel-default" id="{{ad.id}}" ng-repeat="ad in ads">
-                <div class="panel-body">
-                    <header>
-                        <h5 class="">{{ ad.title }}
-                            <p class="pull-right">{{ ad.date | date:'dd-MMM-yyyy' }}</p>
-                        </h5>
-                    </header>
-                    <section class="row">
-                        <div class="image-container jumbotron col-md-3">
-                            <img ng-src="{{ ad.imageDataUrl }}" src="../app/img/wutu.jpg"/>
-                        </div>
-
-                        <div class="ad-info col-md-5">
-                            <p>
-                                {{ ad.text }}
-                            </p>
-                            <div>
-                                <label>Category: </label><span>{{ad.categoryName}}</span>
-                            </div>
-                            <div>
-                                <label>Town: </label><span>{{ad.townName}}</span>
-                            </div>
-                        </div>
-                        <div class="col-md-3 text-center ad-status" ng-controller="AdRequestsController">
-                            <div class="panel">
-                                <div class="panel-heading">
-                                    <h3 class="panel-title">Status</h3>
-                                </div>
-                                <div class="panel-body">
-                                    {{ ad.status | status:ad.id }}
-                                </div>
-                            </div>
-                            <button class="btn btn-block btn-warning not-display" ng-click="deactivate(ad.id)">Deactivate</button>
-                            <button class="btn btn-block btn-primary not-display">Edit</button>
-                            <button class="btn btn-block btn-success not-display" ng-click="publishAgain(ad.id)">Publish Again</button>
-                            <button class="btn btn-block btn-danger not-display" ng-click="delete(ad.id)">Delete</button>
-                        </div>
-                        <!--<div class="col-md-3 text-center ad-status">-->
-                            <!--<div>-->
-                                <!--<label>Status: </label><div class="status-label"><label>{{ad.status | status:ad.id}}</label></div>-->
-                            <!--</div>-->
-                            <!--<button class="btn btn-block btn-danger">Deactivate</button>-->
-                        <!--</div>-->
-                    </section>
+<div class="ads-panel" ng-controller="ListMyAdsController">
+    <div class="panel panel-default" id="{{ad.id}}" ng-repeat="ad in ads">
+        <div ng-include="template.confirmDelete"></div>
+        <div class="panel-body">
+            <header>
+                <h5 class="">{{ ad.title }}
+                    <p class="pull-right">{{ ad.date | date:'dd-MMM-yyyy' }}</p>
+                </h5>
+            </header>
+            <section class="row">
+                <div class="image-container jumbotron col-md-3">
+                    <img ng-src="{{ ad.imageDataUrl }}" src="../app/img/wutu.jpg"/>
                 </div>
-            </div>
+
+                <div class="ad-info col-md-5">
+                    <p>
+                        {{ ad.text }}
+                    </p>
+                    <div>
+                        <label>Category: </label><span>{{ad.categoryName}}</span>
+                    </div>
+                    <div>
+                        <label>Town: </label><span>{{ad.townName}}</span>
+                    </div>
+                </div>
+                <div class="col-md-3 text-center ad-status" ng-controller="EditAdsController">
+                    <div class="panel">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Status</h3>
+                        </div>
+                        <div class="panel-body">
+                            {{ ad.status | status:ad.id }}
+                        </div>
+                    </div>
+                    <button class="btn btn-block btn-warning warning not-display" ng-click="deactivate(ad)">Deactivate</button>
+                    <button class="btn btn-block btn-primary primary not-display" ng-click="getAd(ad.id)">Edit</button>
+                    <button class="btn btn-block btn-success success not-display" ng-click="publishAgain(ad)">Publish Again</button>
+                    <button class="btn btn-block btn-danger danger not-display" data-toggle="modal" data-target="#largeModal" ng-init="currAd = ad">Delete</button>
+                </div>
+                <!--<div class="col-md-3 text-center ad-status">-->
+                    <!--<div>-->
+                        <!--<label>Status: </label><div class="status-label"><label>{{ad.status | status:ad.id}}</label></div>-->
+                    <!--</div>-->
+                    <!--<button class="btn btn-block btn-danger">Deactivate</button>-->
+                <!--</div>-->
+            </section>
         </div>
     </div>
-</main>
+</div>
