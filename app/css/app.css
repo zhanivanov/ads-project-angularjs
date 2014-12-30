@@ -89,6 +89,16 @@
     display: none;
 }
 
+.confirm-delete{
+    margin: 5%;
+    padding: 5%;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+.profile-section{
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
 /*.waiting-approval{*/
     /*border: 1px solid #FF9800;*/
     /*color: #FF9800;*/

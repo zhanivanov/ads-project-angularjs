@@ -5,7 +5,7 @@ adsApp.controller('EditAdsController',
 
         $scope.deactivate = deactivate;
         $scope.publishAgain = publishAgain;
-        $scope.delete = deleteAd;
+        $scope.confirmDelete = confirmDelete;
         $scope.getAd = getAd;
         $scope.changeImg = changeImg;
         $scope.deleteImg = deleteImg;
@@ -57,19 +57,8 @@ adsApp.controller('EditAdsController',
             )
         }
 
-        function deleteAd(id){
-            authService.authorizedRequest(
-                'DELETE',
-                'ads/' + id,
-                null,
-                function(data){
-                    $rootScope.$broadcast('deleted');
-                    notifications.error("Successfully deleted the ad.")
-                },
-                function(error){
-                    console.log(error);
-                }
-            )
+        function confirmDelete(ad){
+            $rootScope.$emit('confirmDelete', ad);
         }
 
         function getAd(id){

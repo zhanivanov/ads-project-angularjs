@@ -22,4 +22,7 @@ var adsApp = angular
             .when('/editad', {
                 templateUrl: '../app/templates/editAdPage.html'
             })
+            .when('/profile', {
+                templateUrl: '../app/templates/editProfilePage.html'
+            })
     });

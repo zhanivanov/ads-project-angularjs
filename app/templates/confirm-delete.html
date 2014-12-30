@@ -1,47 +1,39 @@
-<div class="modal fade" id="largeModal" tabindex="-1" role="dialog" aria-labelledby="largeModal" aria-hidden="true" ng-init="deleted = currAd">
+<div class="modal fade" id="largeModal" tabindex="-1" role="dialog" aria-labelledby="largeModal" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 <h4 class="modal-title" id="myModalLabel">Confirm Deleting Ad?</h4>
             </div>
-            <div class="modal-body">
-                <header>
-                    <h5>{{ deleted }}
-                        <p class="pull-right">{{ deleted.date | date:'dd-MMM-yyyy' }}</p>
-                    </h5>
-                </header>
-                <section class="row">
-                    <div class="image-container jumbotron col-md-3">
-                        <img ng-src="{{ deleted.imageDataUrl }}" src="../app/img/wutu.jpg"/>
-                    </div>
+            <div class="modal-body" style="">
+                <div class="confirm-delete">
+                    <header>
+                        <h5>{{ deleted.title }}
+                            <p class="pull-right">{{ deleted.date | date:'dd-MMM-yyyy' }}</p>
+                        </h5>
+                    </header>
+                    <section class="row">
+                        <div class="image-container jumbotron col-md-3">
+                            <img ng-src="{{ deleted.imageDataUrl }}" src="../app/img/wutu.jpg"/>
+                        </div>
 
-                    <div class="ad-info col-md-5">
-                        <p>
-                            {{ deleted.text }}
-                        </p>
-                        <div>
-                            <label>Category: </label><span>{{deleted.categoryName}}</span>
-                        </div>
-                        <div>
-                            <label>Town: </label><span>{{deleted.townName}}</span>
-                        </div>
-                    </div>
-                    <div class="col-md-3 text-center ad-status">
-                        <div class="panel">
-                            <div class="panel-heading">
-                                <h3 class="panel-title">Status</h3>
+                        <div class="ad-info col-md-8">
+                            <p>
+                                {{ deleted.text }}
+                            </p>
+                            <div>
+                                <label>Category: </label><span>{{deleted.categoryName}}</span>
                             </div>
-                            <div class="panel-body">
-                                {{ deleted.status | status:deleted.id }}
+                            <div>
+                                <label>Town: </label><span>{{deleted.townName}}</span>
                             </div>
                         </div>
-                    </div>
-                </section>
+                    </section>
+                </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-danger">Delete</button>
+                <button type="button" class="btn btn-danger" ng-click="delete(deleted.id)" data-dismiss="modal">Delete</button>
             </div>
         </div>
     </div>

@@ -13,7 +13,8 @@ adsApp.controller('ViewsController',
             "addNewAd": "../app/templates/add-new-ad-template.html",
             "myAdsAside": "../app/templates/my-ads-aside.html",
             "editAd": "../app/templates/edit-ad-form.html",
-            "confirmDelete": "../app/templates/confirm-delete.html"
+            "confirmDelete": "../app/templates/confirm-delete.html",
+            "editProfile": "../app/templates/edit-profile-template.html"
         }
     }
 )

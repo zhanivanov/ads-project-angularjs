@@ -1,6 +1,6 @@
 <div class="ads-panel" ng-controller="ListMyAdsController">
     <div class="panel panel-default" id="{{ad.id}}" ng-repeat="ad in ads">
-        <div ng-include="template.confirmDelete"></div>
+        <div ng-include="template.confirmDelete" ng-controller="ConfirmDeleteController"></div>
         <div class="panel-body">
             <header>
                 <h5 class="">{{ ad.title }}
@@ -35,7 +35,7 @@
                     <button class="btn btn-block btn-warning warning not-display" ng-click="deactivate(ad)">Deactivate</button>
                     <button class="btn btn-block btn-primary primary not-display" ng-click="getAd(ad.id)">Edit</button>
                     <button class="btn btn-block btn-success success not-display" ng-click="publishAgain(ad)">Publish Again</button>
-                    <button class="btn btn-block btn-danger danger not-display" data-toggle="modal" data-target="#largeModal" ng-init="currAd = ad">Delete</button>
+                    <button class="btn btn-block btn-danger danger not-display" data-toggle="modal" data-target="#largeModal" ng-click="confirmDelete(ad)">Delete</button>
                 </div>
                 <!--<div class="col-md-3 text-center ad-status">-->
                     <!--<div>-->
