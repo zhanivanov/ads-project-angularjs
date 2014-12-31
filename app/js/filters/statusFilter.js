@@ -1,18 +1,18 @@
 'use strict';
 
-adsApp.filter('townsFilter', function(){
-    return function(value, townId){
+adsApp.filter('statusFilter', function(){
+    return function(value, status){
         //console.log(categoryId);
         var result = [];
-        if(townId === undefined){
+        if(status === undefined || value == undefined){
             return value;
         }
         for(var i = 0; i < value.length; i++){
-            if(value[i].townId === townId){
+            if(value[i].status === status){
                 result.push(value[i]);
             }
         }
 
         return result;
     }
-});
+})

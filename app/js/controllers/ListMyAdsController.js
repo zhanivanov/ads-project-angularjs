@@ -10,7 +10,7 @@ adsApp.controller('ListMyAdsController',
         });
 
         function listAll() {
-            adsData.getAll(true)
+            adsData.getAll('', '', true)
                 .then(function (data) {
                     $scope.ads = data.ads;
                 })

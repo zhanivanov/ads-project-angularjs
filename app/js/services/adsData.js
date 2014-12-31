@@ -2,15 +2,16 @@
 
 adsApp.factory('adsData', function($http, $q, session){
     return{
-        getAll: function(isUsers){
+        getAll: function(townId, categoryId, isUsers){
             var url = 'http://softuni-ads.azurewebsites.net/api/';
             var defer = $q.defer();
             var headers = {};
+
             if(isUsers){
                 url += 'user/ads';
                 headers["Authorization"] = "Bearer " + session.get().access_token;
             } else{
-                url += 'ads';
+                url += 'ads?townId=' + townId + '&categoryId=' + categoryId;
             }
 
             $http({

@@ -2,7 +2,8 @@
     <div class="panel panel-default">
         <div class="panel-heading"><h5>Category</h5></div>
         <div class="panel-body">
-            <ul class="nav nav-pills nav-stacked">
+            <ul class="nav nav-pills nav-stacked categories">
+                <li id="category-" class="active" ng-click="setCategoryId('')"><a href="">All</a></li>
                 <li ng-repeat="category in categories" id="category-{{category.id}}" ng-click="setCategoryId(category.id)"><a href="">{{ category.name }}</a></li>
             </ul>
         </div>
@@ -12,7 +13,8 @@
     <div class="panel panel-default">
         <div class="panel-heading"><h5>Town</h5></div>
         <div class="panel-body">
-            <ul class="nav nav-pills nav-stacked">
+            <ul class="nav nav-pills nav-stacked towns">
+                <li id="town-" class="active" ng-click="setTownId('')"><a href="">All</a></li>
                 <li ng-repeat="town in towns" id="town-{{town.id}}" ng-click="setTownId(town.id)"><a href="">{{ town.name }}</a></li>
             </ul>
         </div>

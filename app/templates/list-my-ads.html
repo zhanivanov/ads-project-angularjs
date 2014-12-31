@@ -1,5 +1,5 @@
 <div class="ads-panel" ng-controller="ListMyAdsController">
-    <div class="panel panel-default" id="{{ad.id}}" ng-repeat="ad in ads">
+    <div class="panel panel-default" id="{{ad.id}}" ng-repeat="ad in ads | statusFilter:status">
         <div ng-include="template.confirmDelete" ng-controller="ConfirmDeleteController"></div>
         <div class="panel-body">
             <header>

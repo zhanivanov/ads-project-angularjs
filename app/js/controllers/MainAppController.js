@@ -12,7 +12,8 @@ adsApp.controller('MainAppController',
         });
 
         $scope.currentUser = session.get();
-        
+
+        $scope.routeChecker = routeChecker;
 
         $scope.nameRegex = /^[A-z ,.'-]+$/;
         $scope.phoneRegex = /(?:(?:\+?1\s*(?:[.-]\s*)?)?(?:(\s*([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]‌​)\s*)|([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]))\s*(?:[.-]\s*)?)([2-9]1[02-9]‌​|[2-9][02-9]1|[2-9][02-9]{2})\s*(?:[.-]\s*)?([0-9]{4})(?:\s*(?:#|x\.?|ext\.?|extension)\s*(\d+))?$/;
@@ -63,48 +64,44 @@ adsApp.controller('MainAppController',
             }
         }
 
-        var prevTown = '';
         function setTownId(townId){
-            var townSelector = '#town-' + townId;
-            var prevTownSelector = '#town-' + prevTown;
+            $rootScope.$broadcast('townClicked', townId);
 
-            if($(townSelector).hasClass('active')){
-                $(townSelector).removeClass('active');
-                $scope.townId = undefined;
+            var selector = '#town-' + townId;
+            $('.towns').children().removeClass('active');
+            $(selector).addClass('active');
+        }
+
+        function setCategoryId(categoryId){
+            $rootScope.$broadcast('categoryClicked', categoryId);
+
+            var selector = '#category-' + categoryId;
+            $('.categories').children().removeClass('active');
+            $(selector).addClass('active');
+        }
+
+        function routeChecker(){
+            var route = $window.location.hash;
+            if(!(route.localeCompare('#/'))){
+                $('#home').addClass('active');
+            } else if(!(route.localeCompare('#/myads'))){
+                $scope.status = undefined;
+                $('#myads').addClass('active');
+            } else if(!(route.localeCompare('#/addnewad'))){
+                $('#addnewad').addClass('active');
             } else{
-                if($(prevTownSelector).hasClass('active')){
-                    $(prevTownSelector).removeClass('active');
-                    $(townSelector).addClass('active');
-                    $scope.townId = townId;
-                    prevTown = townId;
-                } else{
-                    $(townSelector).addClass('active');
-                    $scope.townId = townId;
-                    prevTown = townId;
-                }
+                $('#profile').addClass('active');
             }
         }
 
-        var prevCategory = '';
-        function setCategoryId(categoryId){
-            var categorySelector = '#category-' + categoryId;
-            var prevCategorySelector = '#category-' + prevCategory;
+        $scope.status = "undefined";
 
-            if($(categorySelector).hasClass('active')){
-                $(categorySelector).removeClass('active');
-                $scope.categoryId = undefined;
-            } else{
-                if($(prevCategorySelector).hasClass('active')){
-                    $(prevCategorySelector).removeClass('active');
-                    $(categorySelector).addClass('active');
-                    $scope.categoryId = categoryId;
-                    prevCategory = categoryId;
-                } else{
-                    $(categorySelector).addClass('active');
-                    $scope.categoryId = categoryId;
-                    prevCategory = categoryId;
-                }
-            }
+        $scope.changeStatus = function(status) {
+            $scope.status = status;
+
+            var selector = '#' + status;
+            $('.myads').children().removeClass('active');
+            $(selector).addClass('active');
         }
     }
 )
