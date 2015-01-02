@@ -97,6 +97,11 @@
 
 .profile-section{
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    margin-left: 6%;
+}
+
+.ads-per-page{
+    margin-right: 1%;
 }
 
 /*.waiting-approval{*/

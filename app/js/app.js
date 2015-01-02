@@ -5,24 +5,41 @@ var adsApp = angular
     .config(function($routeProvider) {
         $routeProvider
             .when('/', {
-            templateUrl: '../app/templates/HomePage.html'
+            templateUrl: '../app/templates/pages/home-page.html'
         })
             .when('/login', {
-                templateUrl: '../app/templates/loginPage.html'
+                templateUrl: '../app/templates/pages/login-page.html'
             })
             .when('/register', {
-                templateUrl: '../app/templates/registerPage.html'
+                templateUrl: '../app/templates/pages/register-page.html'
             })
             .when('/addnewad', {
-                templateUrl: '../app/templates/addNewAdPage.html'
+                templateUrl: '../app/templates/pages/add-new-ad-page.html',
+                resolve: { authFilter: function(authFilter){
+                        return authFilter();
+                    }
+                }
             })
             .when('/myads', {
-                templateUrl: '../app/templates/MyAdsPage.html'
+                templateUrl: '../app/templates/pages/my-ads-page.html',
+                resolve: { authFilter: function(authFilter){
+                        return authFilter();
+                    }
+                }
             })
             .when('/editad', {
-                templateUrl: '../app/templates/editAdPage.html'
+                templateUrl: '../app/templates/pages/edit-ad-page.html',
+                resolve: { authFilter: function(authFilter){
+                        return authFilter();
+                    }
+                }
             })
             .when('/profile', {
-                templateUrl: '../app/templates/EditProfilePage.html'
+                templateUrl: '../app/templates/pages/edit-profile-page.html',
+                resolve: { authFilter: function(authFilter){
+                        return authFilter();
+                    }
+                }
             })
+            .otherwise({ redirectTo: '/' });
     });

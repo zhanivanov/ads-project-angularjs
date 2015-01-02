@@ -1,0 +1,5 @@
+<ul class="pagination" ng-controller="PagerController">
+    <li class="disabled"><a href="#">«</a></li>
+    <li ng-repeat="page in numPages" id="page-{{page}}" ng-click="setPageId(page)"><a href="">page</a></li>
+    <li><a href="#">»</a></li>
+</ul>
