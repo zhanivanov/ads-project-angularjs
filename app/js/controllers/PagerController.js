@@ -13,7 +13,7 @@ adsApp.controller('PagerController',
         };
 
         $scope.setPageId = setPage;
-        $scope.setPageId(1);
+        $scope.currentPage = 1;
 
         function setPage(pageId, nextPage){
             if(nextPage != undefined){
@@ -35,16 +35,12 @@ adsApp.controller('PagerController',
                     pageId = $scope.currentPage - 1;
                 }
             }
-            setCurrentPage(pageId);
+            $scope.currentPage = pageId;
             $rootScope.$emit('pageChange', pageId);
 
             var selector = '#page-' + pageId;
             $('.pagination').children().removeClass('active');
             $(selector).addClass('active');
-        }
-
-        function setCurrentPage(id){
-            $scope.currentPage = id;
         }
     }
 );

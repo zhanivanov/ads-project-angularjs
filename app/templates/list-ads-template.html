@@ -1,7 +1,7 @@
 <main class="col-md-8">
     <div id="content" class="jumbotron">
         <div class="ads-panel" ng-controller="ListAdsController" ng-init="getAds()">
-            <div class="panel panel-default" ng-repeat="ad in ads | filter: search">
+            <div class="panel panel-default" id="{{ad.id}}" ng-repeat="ad in ads | filter: search">
                 <div class="panel-body">
                     <header>
                         <h5 class="">{{ ad.title }}
@@ -9,8 +9,20 @@
                         </h5>
                     </header>
                     <section class="row">
-                        <div class="image-container jumbotron col-md-3">
-                            <img ng-src="{{ ad.imageDataUrl }}" src="../app/img/wutu.jpg"/>
+                        <div class="status-image-container col-md-3">
+                            <div class="image-container jumbotron">
+                                <img ng-src="{{ ad.imageDataUrl }}" src="../app/img/wutu.jpg"/>
+                            </div>
+                            <div class="text-center vert-offset-top-6" ng-controller="EditAdsController" ng-if="isAdmin">
+                                <div class="panel">
+                                    <div class="panel-heading">
+                                        <h3 class="panel-title">Status</h3>
+                                    </div>
+                                    <div class="panel-body">
+                                        {{ ad.status | status:ad.id }}
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div class="col-md-1"></div>
                         <div class="ad-info col-md-6">
@@ -26,8 +38,24 @@
                             <div>
                                 <label>Phone: </label><span>{{ad.ownerPhone}}</span>
                             </div>
+                            <div ng-if="isAdmin">
+                                <label>Username: </label><span>{{ad.ownerUsername}}</span>
+                            </div>
+                            <div ng-if="isAdmin">
+                                <label>Category: </label><span>{{ad.categoryName || 'unknown'}}</span>
+                            </div>
+                            <div ng-if="isAdmin">
+                                <label>Town: </label><span>{{ad.townName || 'unknown'}}</span>
+                            </div>
                         </div>
                     </section>
+                    <div class="row button-group" ng-if="isAdmin">
+                        <hr>
+                        <button class="btn btn-success col-md-2">Approve</button>
+                        <button class="btn btn-warning col-md-2">Reject</button>
+                        <button class="btn btn-primary col-md-2">Edit</button>
+                        <button class="btn btn-danger col-md-2">Delete</button>
+                    </div>
                 </div>
             </div>
         </div>

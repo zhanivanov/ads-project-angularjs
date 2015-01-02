@@ -3,7 +3,7 @@
 adsApp.filter('status',function(){
     return function(input, id){
         var element = $('#' + id + ' .panel');
-        var deactivateBtn = $('#' + id + ' .btn-warning');
+        var deactivateBtn = $('#' + id + ' .warning');
         var editBtns = [
             $('#' + id + ' .primary'),
             $('#' + id + ' .success'),

@@ -10,7 +10,7 @@ adsApp.factory('authService', function ($http, session, $q) {
                     "password": credentials.password
                 }})
                     .success(function(data, status, headers, config){
-                        session.create(data.access_token, data.username);
+                        session.create(data.access_token, data.username, data.isAdmin);
                         successCallback(data);
                     })
                     .error(function(data, status, headers, config){

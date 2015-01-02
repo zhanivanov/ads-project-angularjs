@@ -1,19 +1,32 @@
 'use strict';
 
 adsApp.controller('MainAppController',
-    function MainAppController($scope, session, $rootScope, notifications, $window){
+    function MainAppController($scope, session, $rootScope, notifications, $window, $location){
         var validatedInputs = [];
         $rootScope.$on("userLoggedOrRegistered", function(){
+            $scope.isAdmin = session.isAdmin();
             $scope.currentUser = session.get();
         });
 
         $rootScope.$on("loggedOut", function(){
+            $scope.isAdmin = undefined;
             $scope.currentUser = undefined;
         });
 
+        $scope.isAdmin = session.isAdmin();
         $scope.currentUser = session.get();
 
         $scope.routeChecker = routeChecker;
+        $scope.routeChanger = function(){
+            var currRoute = ($window.location.hash).split(/#\/(.+)/)[1];
+            if(!currRoute){
+                currRoute = '';
+            }
+            if(session.isAdmin()){
+                $location.path('/admin/' + currRoute);
+            }
+        };
+        $scope.routeChanger();
 
         $scope.nameRegex = /^[A-z ,.'-]+$/;
         $scope.phoneRegex = /(?:(?:\+?1\s*(?:[.-]\s*)?)?(?:(\s*([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]‌​)\s*)|([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]))\s*(?:[.-]\s*)?)([2-9]1[02-9]‌​|[2-9][02-9]1|[2-9][02-9]{2})\s*(?:[.-]\s*)?([0-9]{4})(?:\s*(?:#|x\.?|ext\.?|extension)\s*(\d+))?$/;
