@@ -36,7 +36,7 @@ adsApp.controller('ListAdsController',
         $scope.getAds = function(){
             console.log(session.isAdmin());
             if(session.isAdmin()){
-                adsData.getAllAsAdmin()
+                adsData.getAllAsAdmin(townId, categoryId, pageSize, startPage, '')
                     .then(function(data){
                         $scope.$emit('sendNumPages', data.numPages);
                         console.log(data.ads);

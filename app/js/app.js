@@ -41,15 +41,15 @@ var adsApp = angular
                     }
                 }
             })
-            .when('/admin/', {
+            .when('/admin/home', {
                 templateUrl: '../app/templates/pages/home-page.html',
                 resolve: { adminFilter: function(adminFilter){
                         return adminFilter();
                     }
                 }
             })
-            .when('/admin/myads',{
-                templateUrl: '../app/templates/pages/my-ads-page.html',
+            .when('/admin/editad',{
+                templateUrl: '../app/templates/pages/edit-ad-page.html',
                 resolve: { adminFilter: function(adminFilter){
                     return adminFilter();
                 }

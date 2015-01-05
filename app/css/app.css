@@ -110,6 +110,13 @@
 .button-group button{
     margin-left: 6.5%;
 }
+
+hr.style-one {
+    border: 0;
+    height: 1px;
+    background: #333;
+    background-image: -webkit-linear-gradient(left, #DDD, #AAA, #DDD);
+}
 /*.waiting-approval{*/
     /*border: 1px solid #FF9800;*/
     /*color: #FF9800;*/

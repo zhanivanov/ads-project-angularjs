@@ -2,6 +2,7 @@
     <div id="content" class="jumbotron">
         <div class="ads-panel" ng-controller="ListAdsController" ng-init="getAds()">
             <div class="panel panel-default" id="{{ad.id}}" ng-repeat="ad in ads | filter: search">
+                <div ng-include="template.confirmDelete" ng-controller="ConfirmDeleteController"></div>
                 <div class="panel-body">
                     <header>
                         <h5 class="">{{ ad.title }}
@@ -49,12 +50,12 @@
                             </div>
                         </div>
                     </section>
-                    <div class="row button-group" ng-if="isAdmin">
-                        <hr>
-                        <button class="btn btn-success col-md-2">Approve</button>
-                        <button class="btn btn-warning col-md-2">Reject</button>
-                        <button class="btn btn-primary col-md-2">Edit</button>
-                        <button class="btn btn-danger col-md-2">Delete</button>
+                    <div class="row button-group" ng-if="isAdmin" ng-controller="EditAdsController">
+                        <hr class="style-one">
+                        <button class="btn btn-success col-md-2" ng-click="approve(ad)">Approve</button>
+                        <button class="btn btn-warning col-md-2" ng-click="reject(ad)">Reject</button>
+                        <button class="btn btn-primary col-md-2" ng-click="getAd(ad.id)">Edit</button>
+                        <button class="btn btn-danger col-md-2" data-toggle="modal" data-target="#largeModal" ng-click="confirmDelete(ad)">Delete</button>
                     </div>
                 </div>
             </div>

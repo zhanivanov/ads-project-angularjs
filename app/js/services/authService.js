@@ -1,11 +1,13 @@
 'use strict';
 
 adsApp.factory('authService', function ($http, session, $q) {
-        var url = 'http://softuni-ads.azurewebsites.net/api/user/';
+        var isAdminUrl = '';
+        var url = 'http://softuni-ads.azurewebsites.net/api/';
 
         return{
             login: function(credentials, successCallback, errorCallback) {
-                $http({method: 'POST', url: url + 'login', data:{
+                isAdminUrl = '';
+                $http({method: 'POST', url: url + 'user/login', data:{
                     "username": credentials.username,
                     "password": credentials.password
                 }})
@@ -18,7 +20,8 @@ adsApp.factory('authService', function ($http, session, $q) {
                     });
             },
             register: function(credentials, successCallback, errorCallback){
-                $http({method: 'POST', url: url + 'register', data:{
+                isAdminUrl = '';
+                $http({method: 'POST', url: url + 'user/register', data:{
                     "name": credentials.name,
                     "email": credentials.email,
                     "phone": credentials.phone,
@@ -36,7 +39,8 @@ adsApp.factory('authService', function ($http, session, $q) {
                     });
             },
             logout: function(successCallback, errorCallback){
-                $http({method: 'POST', url: url + 'logout', headers: {
+                isAdminUrl = '';
+                $http({method: 'POST', url: url + 'user/logout', headers: {
                     "Authorization": "Bearer " + session.get().access_token
                 }})
                     .success(function(data, status, headers, config){
@@ -49,7 +53,7 @@ adsApp.factory('authService', function ($http, session, $q) {
             authorizedRequest: function(method, targetUrl, data, successCallback, errorCallback){
                 $http({
                     method: method,
-                    url: url + targetUrl,
+                    url: url + (session.isAdmin() ? 'admin/' : 'user/') + targetUrl,
                     headers: {
                         "Authorization": "Bearer " + session.get().access_token
                     },

@@ -28,8 +28,8 @@ adsApp.factory('adsData', function($http, $q, session){
 
             return defer.promise;
         },
-        getAllAsAdmin: function(){
-            var url = 'http://softuni-ads.azurewebsites.net/api/admin/ads';
+        getAllAsAdmin: function(townId, categoryId, pageSize, startPage, status){
+            var url = 'http://softuni-ads.azurewebsites.net/api/admin/ads?townId=' + townId + '&categoryId=' + categoryId + '&pagesize=' + pageSize + '&startpage=' + startPage + '&status=' + status;
             var defer = $q.defer();
             var headers = {};
             headers["Authorization"] = "Bearer " + session.get().access_token;

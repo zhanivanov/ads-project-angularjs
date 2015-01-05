@@ -22,10 +22,22 @@
                                 {{ deleted.text }}
                             </p>
                             <div>
-                                <label>Category: </label><span>{{deleted.categoryName}}</span>
+                                <label>Category: </label><span>{{deleted.categoryName || 'unknown'}}</span>
                             </div>
                             <div>
-                                <label>Town: </label><span>{{deleted.townName}}</span>
+                                <label>Town: </label><span>{{deleted.townName || 'unknown'}}</span>
+                            </div>
+                            <div ng-if="isAdmin">
+                                <label>Username: </label><span>{{deleted.ownerUsername}}</span>
+                            </div>
+                            <div ng-if="isAdmin">
+                                <label>Name: </label><span>{{deleted.ownerName}}</span>
+                            </div>
+                            <div ng-if="isAdmin">
+                                <label>Email: </label><span>{{deleted.ownerEmail}}</span>
+                            </div>
+                            <div ng-if="isAdmin">
+                                <label>Phone: </label><span>{{deleted.ownerPhone}}</span>
                             </div>
                         </div>
                     </section>

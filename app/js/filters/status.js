@@ -11,23 +11,26 @@ adsApp.filter('status',function(){
         ];
         switch (input){
             case "WaitingApproval":
-                element.removeClass("panel-danger").addClass("panel-warning");
+                element.removeClass("panel-danger").removeClass("panel-warning").addClass("panel-primary");
                 deactivateBtn.removeClass('not-display').addClass('display');
                 editBtns.forEach(function(btn){
                     btn.removeClass('display').addClass('not-display');
                 });
                 return "Waiting Approval";
             case "Inactive":
-                element.removeClass("panel-warning").addClass("panel-danger");
+                element.removeClass("panel-danger").removeClass("panel-warning").addClass("panel-warning");
                 deactivateBtn.removeClass('display').addClass('not-display');
                 editBtns.forEach(function(btn){
                     btn.removeClass('not-display').addClass('display');
                 });
                 return "Inactive";
             case "Published":
-                element.addClass("panel-success");
+                element.removeClass("panel-danger").removeClass("panel-warning").addClass("panel-success");
                 deactivateBtn.removeClass('not-display').addClass('display');
                 return "Published";
+            case "Rejected":
+                element.addClass("panel-danger");
+                return "Rejected";
         }
     }
 });

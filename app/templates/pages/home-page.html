@@ -1,6 +1,8 @@
 <div class="col-md-2">
-    <div ng-include="template.authAside" ng-if="!currentUser.username"></div>
-    <div ng-include="template.navigationAside" ng-if="currentUser.username"></div>
+    <div ng-include="template.authAside" ng-if="!currentUser.username && !isAdmin"></div>
+    <div ng-include="template.navigationAside" ng-if="currentUser.username && !isAdmin"></div>
+    <div ng-include="template.adminNav" ng-if="isAdmin"></div>
+    <div ng-include="template.myAdsAside" ng-if="isAdmin"></div>
 </div>
 <div ng-include="template.allAdsMain"></div>
 <div ng-include="template.townsAside"></div>

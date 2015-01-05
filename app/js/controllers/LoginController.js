@@ -10,9 +10,15 @@ adsApp.controller('LoginController',
         $scope.login = function (credentials) {
             authService.login(credentials,
                 function(data){
-                    notifications.success("Successful login!");
-                    $rootScope.$broadcast("userLoggedOrRegistered");
-                    $location.path('/');
+                    if(data.isAdmin){
+                        notifications.success("WELCOME, ADMIN!");
+                        $rootScope.$broadcast("userLoggedOrRegistered");
+                        $location.path('/admin/home');
+                    } else {
+                        notifications.success("Successful login!");
+                        $rootScope.$broadcast("userLoggedOrRegistered");
+                        $location.path('/');
+                    }
                 },
                 function(data){
                     var msg = data.error_description;

@@ -17,16 +17,6 @@ adsApp.controller('MainAppController',
         $scope.currentUser = session.get();
 
         $scope.routeChecker = routeChecker;
-        $scope.routeChanger = function(){
-            var currRoute = ($window.location.hash).split(/#\/(.+)/)[1];
-            if(!currRoute){
-                currRoute = '';
-            }
-            if(session.isAdmin()){
-                $location.path('/admin/' + currRoute);
-            }
-        };
-        $scope.routeChanger();
 
         $scope.nameRegex = /^[A-z ,.'-]+$/;
         $scope.phoneRegex = /(?:(?:\+?1\s*(?:[.-]\s*)?)?(?:(\s*([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]‌​)\s*)|([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]))\s*(?:[.-]\s*)?)([2-9]1[02-9]‌​|[2-9][02-9]1|[2-9][02-9]{2})\s*(?:[.-]\s*)?([0-9]{4})(?:\s*(?:#|x\.?|ext\.?|extension)\s*(\d+))?$/;
@@ -41,6 +31,7 @@ adsApp.controller('MainAppController',
 
         $scope.setTownId = setTownId;
         $scope.setCategoryId = setCategoryId;
+
 
         function isValid(isValid, name){
             validatedInputs.push('valid' + capitaliseFirstLetter(name));
