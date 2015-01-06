@@ -79,8 +79,15 @@ var adsApp = angular
             .when('/admin/categories/create',{
                 templateUrl: '../app/templates/pages/admin/create-category-page.html',
                 resolve: { adminFilter: function(adminFilter){
-                    return adminFilter();
+                        return adminFilter();
+                    }
                 }
+            })
+            .when('/admin/categories/edit',{
+                templateUrl: '../app/templates/pages/admin/edit-category-page.html',
+                resolve: { adminFilter: function(adminFilter){
+                        return adminFilter();
+                    }
                 }
             })
             .otherwise({ redirectTo: '/' });

@@ -11,6 +11,7 @@ adsApp.controller('CategoriesAdminController',
         $scope.confirmDeleteCategory = confirmDeleteCategory;
         $scope.goToEdit = goToEdit;
         $scope.createCategory = createCategory;
+        $scope.editCategory = editCategory;
 
         $rootScope.$$listeners.pageChange = [];
         $rootScope.$on('pageChange', function (event, page) {
@@ -35,9 +36,29 @@ adsApp.controller('CategoriesAdminController',
                 })
         }
 
-        function goToEdit(user){
-            $rootScope.user = user;
-            $location.path('/admin/users/edit');
+        function editCategory(categoryInfo){
+            var data = { name: categoryInfo.username };
+            authService.authorizedRequest(
+                'PUT',
+                'categories/' + categoryInfo.id,
+                data,
+                function(data){
+                    $location.path('admin/categories');
+                    notifications.success("Successfully edited the category.")
+                },
+                function(error){
+                    console.log(error);
+                }
+            )
+        }
+
+        $scope.categoryInfo = $rootScope.categoryInfo;
+        console.log($rootScope.categoryInfo);
+        delete $rootScope.categoryInfo;
+
+        function goToEdit(category){
+            $location.path('/admin/categories/edit');
+            $rootScope.categoryInfo = category;
         }
 
         function confirmDeleteCategory(category){

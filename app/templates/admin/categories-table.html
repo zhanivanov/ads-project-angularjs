@@ -8,18 +8,18 @@
         </tr>
         </thead>
         <tbody>
-        <tr ng-repeat="category in categories track by $index" id="category-{{category.id}}" ng-class-odd="'active'" ng-class-even="'success'">
+        <tr ng-repeat="category in categories track by $index" id="category-{{category.id}}" ng-class-odd="'active'" ng-class-even="'warning'">
             <div ng-include="template.confirmDeleteCategory" ng-controller="ConfirmDeleteController"></div>
             <td>{{ category.id }}</td>
             <td class="text-center">{{ category.username }}</td>
             <td class="text-center">
-                <button class="btn btn-sm btn-primary" ng-click="">Edit</button>
+                <button class="btn btn-sm btn-primary" ng-click="goToEdit(category)">Edit</button>
                 <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#largeModal" ng-click="confirmDeleteCategory(category)">Delete</button>
             </td>
         </tr>
         </tbody>
     </table>
-    <div>
-        <a href="#/admin/categories/create" class="btn btn-block btn-primary vert-offset-top-4">Create New Category</a>
+    <div class="text-right">
+        <a href="#/admin/categories/create" class="btn btn-lg btn-primary vert-offset-top-2">Create New Category</a>
     </div>
 </div>

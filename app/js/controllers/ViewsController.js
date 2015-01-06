@@ -21,7 +21,8 @@ adsApp.controller('ViewsController',
             "confirmDeleteUser": "../app/templates/admin/confirm-delete-user-template.html",
             "categoriesTable": "../app/templates/admin/categories-table.html",
             "confirmDeleteCategory": "../app/templates/admin/confirm-delete-category-template.html",
-            "createCategory": "../app/templates/admin/create-category-template.html"
+            "createCategory": "../app/templates/admin/create-category-template.html",
+            "editCategory": "../app/templates/admin/edit-category-template.html"
         }
     }
 )

@@ -2,7 +2,7 @@
     <form class="form-horizontal authentication-form" ng-submit="updateProfile(userInfo)">
         <fieldset>
             <legend>Edit <span ng-if="isAdmin">User</span> Profile</legend>
-            <div class="form-group">
+            <div class="form-group" ng-if="isAdmin">
                 <label for="username" class="col-lg-2 control-label">Username</label>
                 <div class="col-lg-1"></div>
                 <div class="col-lg-9">
@@ -60,7 +60,7 @@
     <form class="form-horizontal authentication-form" ng-submit="changePassword(passwordInfo)">
         <fieldset>
             <legend>Change <span ng-if="isAdmin">User</span> Password</legend>
-            <div class="form-group">
+            <div class="form-group" ng-if="isAdmin">
                 <label for="username" class="col-lg-4 control-label">Username</label>
                 <div class="col-lg-1"></div>
                 <div class="col-lg-7">
