@@ -51,6 +51,20 @@ var adsApp = angular
             .when('/admin/editad',{
                 templateUrl: '../app/templates/pages/edit-ad-page.html',
                 resolve: { adminFilter: function(adminFilter){
+                        return adminFilter();
+                    }
+                }
+            })
+            .when('/admin/users',{
+                templateUrl: '../app/templates/pages/users-page.html',
+                resolve: { adminFilter: function(adminFilter){
+                        return adminFilter();
+                    }
+                }
+            })
+            .when('/admin/users/edit',{
+                templateUrl: '../app/templates/pages/edit-profile-page.html',
+                resolve: { adminFilter: function(adminFilter){
                     return adminFilter();
                 }
                 }

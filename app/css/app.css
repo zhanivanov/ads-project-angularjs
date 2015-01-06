@@ -117,6 +117,18 @@ hr.style-one {
     background: #333;
     background-image: -webkit-linear-gradient(left, #DDD, #AAA, #DDD);
 }
+
+.users-table{
+    padding: 0 2%;
+}
+
+th:hover{
+    cursor: pointer;
+}
+
+.sortBy{
+    text-align: left;
+}
 /*.waiting-approval{*/
     /*border: 1px solid #FF9800;*/
     /*color: #FF9800;*/

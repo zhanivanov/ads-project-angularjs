@@ -1,0 +1,26 @@
+<div class="users-table" ng-controller="UsersController" ng-init="getUsers()">
+    <table class="table table-striped table-hover">
+        <thead>
+        <tr ng-class="'danger'">
+            <th ng-click="sortBy('UserName')">Username<span class="sortBy">▲</span></th>
+            <th ng-click="sortBy('Name')">Name<span class="sortBy"></span></th>
+            <th ng-click="sortBy('Email')">Email<span class="sortBy"></span></th>
+            <th ng-click="sortBy('PhoneNumber')">Phone<span class="sortBy"></span></th>
+            <th class="text-center">Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="user in users track by $index" id="user-{{user.username}}" ng-class-odd="'active'" ng-class-even="'success'">
+            <div ng-include="template.confirmDeleteUser" ng-controller="ConfirmDeleteController"></div>
+            <td>{{ user.username }}</td>
+            <td>{{ user.name }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.phoneNumber }}</td>
+            <td class="text-center">
+                <button class="btn btn-sm btn-primary" ng-click="goToEdit(user)">Edit</button>
+                <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#largeModal" ng-click="confirmDeleteUser(user)">Delete</button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>

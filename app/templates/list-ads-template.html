@@ -61,11 +61,5 @@
             </div>
         </div>
     </div>
-    <div ng-controller="PagerController" class="text-center">
-        <ul class="pagination">
-            <li id="first" ng-click="setPageId(0, false)"><a href="">«</a></li>
-            <li ng-repeat="i in getPages(numPages) track by $index" ng-class="$index+1 == 1 ? 'active' : ''" id="page-{{$index+1}}" ng-click="setPageId($index+1)"><a href="">{{$index+1}}</a></li>
-            <li id="last" ng-click="setPageId(0, true)"><a href="">»</a></li>
-        </ul>
-    </div>
+    <div ng-include="template.pager"></div>
 </main>

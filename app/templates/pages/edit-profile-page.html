@@ -1,8 +1,10 @@
 <div class="col-md-2">
-    <div ng-include="template.navigationAside"></div>
+    <div ng-include="template.navigationAside" ng-if="!isAdmin"></div>
+    <div ng-include="template.adminNav" ng-if="isAdmin"></div>
 </div>
 <main class="col-md-10">
     <div id="content" class="jumbotron">
-        <div ng-include="template.editProfile" ng-controller="EditProfileController" ng-init="getUser()"></div>
+        <div ng-include="template.editProfile" ng-controller="EditProfileController" ng-init="getUser()" ng-if="!isAdmin"></div>
+        <div ng-include="template.editProfile" ng-controller="EditProfileController" ng-if="isAdmin"></div>
     </div>
 </main>

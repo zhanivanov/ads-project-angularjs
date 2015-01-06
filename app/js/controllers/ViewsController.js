@@ -16,7 +16,9 @@ adsApp.controller('ViewsController',
             "confirmDelete": "../app/templates/confirm-delete-template.html",
             "editProfile": "../app/templates/edit-profile-template.html",
             "pager": "../app/templates/pager-template.html",
-            "adminNav": "../app/templates/admin/admin-navigation-aside-template.html"
+            "adminNav": "../app/templates/admin/admin-navigation-aside-template.html",
+            "usersTable": "../app/templates/admin/users-table.html",
+            "confirmDeleteUser": "../app/templates/admin/confirm-delete-user-template.html"
         }
     }
 )
