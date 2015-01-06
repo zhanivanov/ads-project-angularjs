@@ -7,6 +7,7 @@
     <link type="text/css" rel="stylesheet" href="css/app.css"/>
     <link type="text/css" rel="stylesheet" href="css/angular-growl.css"/>
     <link type="text/css" rel="stylesheet" href="css/datepicker3.css"/>
+    <link type="text/css" rel="stylesheet" href="lib/bower_components/angular-loading-bar/build/loading-bar.css"/>
     <title></title>
 </head>
 <body ng-app="adsApp" ng-controller="MainAppController" ng-cloak="">
@@ -20,7 +21,7 @@
                     <li class="dropdown closed">
                         <a href="" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">Hello, {{ currentUser.username }}! <b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="#/profile">Edit profile</a></li>
+                            <li><a href="#/profile" ng-href="{{isAdmin ? '#/admin/users/edit' : '#/profile'}}">Edit profile</a></li>
                             <li ng-click="logout()"><a href="">Logout</a></li>
                         </ul>
                     </li>
@@ -52,6 +53,7 @@
     <script src="lib/angular/angular-route.js"></script>
     <script src="lib/noty-2.3.3/js/noty/packaged/jquery.noty.packaged.js"></script>
     <script src="lib/bootstrap.js"></script>
+    <script src="lib/bower_components/angular-loading-bar/build/loading-bar.js"></script>
     <script src="js/app.js"></script>
     <script src="js/services/adsData.js"></script>
     <script src="js/services/notifications.js"></script>
@@ -64,6 +66,7 @@
     <script src="js/services/adminFilter.js"></script>
     <script src="js/services/pager.js"></script>
     <script src="js/services/usersDataSrvc.js"></script>
+    <script src="js/services/categoriesDataSrvc.js"></script>
     <script src="js/controllers/MainAppController.js"></script>
     <script src="js/controllers/ListAdsController.js"></script>
     <script src="js/controllers/ViewsController.js"></script>
@@ -82,6 +85,7 @@
     <script src="js/controllers/AdsPerPageController.js"></script>
     <script src="js/controllers/SelectStatusController.js"></script>
     <script src="js/controllers/UsersController.js"></script>
+    <script src="js/controllers/CategoriesAdminController.js"></script>
     <script src="js/filters/statusFilter.js"></script>
     <script src="js/filters/status.js"></script>
     <script src="js/directives/ngFileSelect.js"></script>

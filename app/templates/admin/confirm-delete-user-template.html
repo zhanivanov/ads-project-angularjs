@@ -48,11 +48,12 @@
                         </fieldset>
                     </form>
                 </div>
+                <div class="alert alert-warning">
+                    <h4>Warning!</h4>
+                    <p>Deleting the user will also delete all ads, created by this user!</p>
+                </div>
             </div>
             <div class="modal-footer">
-                <p>Deleting the user will also delete
-                    all ads, created by this user!
-                </p>
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 <button type="button" class="btn btn-danger" ng-click="deleteUser(deletedUser.username)" data-dismiss="modal">Delete</button>
             </div>

@@ -74,7 +74,7 @@
 
             <div class="form-group">
                 <div class="col-lg-10 col-lg-offset-2">
-                    <a href="#/" class="btn btn-default" ng-click="clearValidatedInputs()">Cancel</a>
+                    <a href="#/" ng-href="{{isAdmin ? '#/admin/home' : '#/'}}" class="btn btn-default" ng-click="clearValidatedInputs()">Cancel</a>
                     <button type="submit" class="btn btn-primary">Edit</button>
                 </div>
             </div>

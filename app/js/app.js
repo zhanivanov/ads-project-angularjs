@@ -1,7 +1,7 @@
 'use strict';
 
 var adsApp = angular
-    .module('adsApp', ['ngRoute', 'ngCookies'])
+    .module('adsApp', ['ngRoute', 'ngCookies', 'angular-loading-bar'])
     .config(function($routeProvider) {
         $routeProvider
             .when('/', {
@@ -56,7 +56,7 @@ var adsApp = angular
                 }
             })
             .when('/admin/users',{
-                templateUrl: '../app/templates/pages/users-page.html',
+                templateUrl: '../app/templates/pages/admin/users-page.html',
                 resolve: { adminFilter: function(adminFilter){
                         return adminFilter();
                     }
@@ -64,6 +64,20 @@ var adsApp = angular
             })
             .when('/admin/users/edit',{
                 templateUrl: '../app/templates/pages/edit-profile-page.html',
+                resolve: { adminFilter: function(adminFilter){
+                        return adminFilter();
+                    }
+                }
+            })
+            .when('/admin/categories',{
+                templateUrl: '../app/templates/pages/admin/categories-page.html',
+                resolve: { adminFilter: function(adminFilter){
+                        return adminFilter();
+                    }
+                }
+            })
+            .when('/admin/categories/create',{
+                templateUrl: '../app/templates/pages/admin/create-category-page.html',
                 resolve: { adminFilter: function(adminFilter){
                     return adminFilter();
                 }

@@ -1,0 +1,29 @@
+<div class="modal fade" id="largeModal" tabindex="-1" role="dialog" aria-labelledby="largeModal" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Confirm Deleting Ad?</h4>
+            </div>
+            <div class="modal-body" style="">
+                <div class="confirm-delete">
+                    <form class="form-horizontal authentication-form">
+                        <fieldset>
+                            <legend>Confirm Deleting Category?</legend>
+                            <div class="form-group">
+                                <label for="category" class="col-lg-4 control-label">Category</label>
+                                <div class="col-lg-8">
+                                    <input type="text" class="form-control" id="category" placeholder="Category" ng-model="deletedCategory.username" disabled>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-danger" ng-click="deleteCategory(deletedCategory.id)" data-dismiss="modal">Delete</button>
+            </div>
+        </div>
+    </div>
+</div>

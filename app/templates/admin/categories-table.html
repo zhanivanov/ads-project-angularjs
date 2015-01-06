@@ -1,0 +1,25 @@
+<div class="users-table" ng-controller="CategoriesAdminController" ng-init="getCategories()">
+    <table class="table table-striped table-hover">
+        <thead>
+        <tr ng-class="'danger'">
+            <th ng-click="sortBy('Id')">Id<span class="sortBy">▲</span></th>
+            <th ng-click="sortBy('Name')" class="text-center">Category<span class="sortBy"></span></th>
+            <th class="text-center">Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="category in categories track by $index" id="category-{{category.id}}" ng-class-odd="'active'" ng-class-even="'success'">
+            <div ng-include="template.confirmDeleteCategory" ng-controller="ConfirmDeleteController"></div>
+            <td>{{ category.id }}</td>
+            <td class="text-center">{{ category.username }}</td>
+            <td class="text-center">
+                <button class="btn btn-sm btn-primary" ng-click="">Edit</button>
+                <button class="btn btn-sm btn-danger" data-toggle="modal" data-target="#largeModal" ng-click="confirmDeleteCategory(category)">Delete</button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <div>
+        <a href="#/admin/categories/create" class="btn btn-block btn-primary vert-offset-top-4">Create New Category</a>
+    </div>
+</div>

@@ -18,7 +18,10 @@ adsApp.controller('ViewsController',
             "pager": "../app/templates/pager-template.html",
             "adminNav": "../app/templates/admin/admin-navigation-aside-template.html",
             "usersTable": "../app/templates/admin/users-table.html",
-            "confirmDeleteUser": "../app/templates/admin/confirm-delete-user-template.html"
+            "confirmDeleteUser": "../app/templates/admin/confirm-delete-user-template.html",
+            "categoriesTable": "../app/templates/admin/categories-table.html",
+            "confirmDeleteCategory": "../app/templates/admin/confirm-delete-category-template.html",
+            "createCategory": "../app/templates/admin/create-category-template.html"
         }
     }
 )
