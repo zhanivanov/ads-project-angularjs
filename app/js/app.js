@@ -90,5 +90,26 @@ var adsApp = angular
                     }
                 }
             })
+            .when('/admin/towns/',{
+                templateUrl: '../app/templates/pages/admin/towns-page.html',
+                resolve: { adminFilter: function(adminFilter){
+                        return adminFilter();
+                    }
+                }
+            })
+            .when('/admin/towns/edit',{
+                templateUrl: '../app/templates/pages/admin/edit-town-page.html',
+                resolve: { adminFilter: function(adminFilter){
+                        return adminFilter();
+                    }
+                }
+            })
+            .when('/admin/towns/create',{
+                templateUrl: '../app/templates/pages/admin/create-town-page.html',
+                resolve: { adminFilter: function(adminFilter){
+                        return adminFilter();
+                    }
+                }
+            })
             .otherwise({ redirectTo: '/' });
     });

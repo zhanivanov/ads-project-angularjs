@@ -8,11 +8,11 @@
                 <div class="confirm-delete">
                     <form class="form-horizontal authentication-form">
                         <fieldset>
-                            <legend>Confirm Deleting Category?</legend>
+                            <legend>Confirm Deleting Town?</legend>
                             <div class="form-group">
-                                <label for="category" class="col-lg-4 control-label">Category</label>
+                                <label for="town" class="col-lg-4 control-label">Town</label>
                                 <div class="col-lg-8">
-                                    <input type="text" class="form-control" id="category" placeholder="Category" ng-model="deletedCategory.username" disabled>
+                                    <input type="text" class="form-control" id="town" placeholder="Town" ng-model="deletedTown.username" disabled>
                                 </div>
                             </div>
                         </fieldset>
@@ -21,7 +21,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-danger" ng-click="deleteCategory(deletedCategory.id)" data-dismiss="modal">Delete</button>
+                <button type="button" class="btn btn-danger" ng-click="deleteTown(deletedTown.id)" data-dismiss="modal">Delete</button>
             </div>
         </div>
     </div>

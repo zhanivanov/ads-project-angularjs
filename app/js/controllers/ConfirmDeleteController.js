@@ -5,6 +5,7 @@ adsApp.controller('ConfirmDeleteController',
         $scope.delete = deleteAd;
         $scope.deleteUser = deleteUser;
         $scope.deleteCategory = deleteCategory;
+        $scope.deleteTown = deleteTown;
 
         $rootScope.$on('confirmDelete', function(event, ad){
             $scope.deleted = ad;
@@ -16,6 +17,10 @@ adsApp.controller('ConfirmDeleteController',
 
         $rootScope.$on('confirmDeleteCategory', function(event, category){
             $scope.deletedCategory = category;
+        });
+
+        $rootScope.$on('confirmDeleteTown', function(event, town){
+            $scope.deletedTown = town;
         });
 
         function deleteAd(id){
@@ -56,6 +61,22 @@ adsApp.controller('ConfirmDeleteController',
                 function (data) {
                     notifications.error("Successfully deleted the category.");
                     $('#category-' + id).remove();
+                },
+                function (error) {
+                    notifications.error("Some error occurred!");
+                    console.log(error);
+                }
+            )
+        }
+
+        function deleteTown(id) {
+            authService.authorizedRequest(
+                'DELETE',
+                'towns/' + id,
+                null,
+                function (data) {
+                    notifications.error("Successfully deleted the town.");
+                    $('#town-' + id).remove();
                 },
                 function (error) {
                     notifications.error("Some error occurred!");

@@ -22,7 +22,11 @@ adsApp.controller('ViewsController',
             "categoriesTable": "../app/templates/admin/categories-table.html",
             "confirmDeleteCategory": "../app/templates/admin/confirm-delete-category-template.html",
             "createCategory": "../app/templates/admin/create-category-template.html",
-            "editCategory": "../app/templates/admin/edit-category-template.html"
+            "editCategory": "../app/templates/admin/edit-category-template.html",
+            "townsTable": "../app/templates/admin/towns-table.html",
+            "confirmDeleteTown": "../app/templates/admin/confirm-delete-town-template.html",
+            "editTown": "../app/templates/admin/edit-town-template.html",
+            "createTown": "../app/templates/admin/create-town-template.html"
         }
     }
 )

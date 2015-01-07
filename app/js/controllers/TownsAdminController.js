@@ -1,50 +1,50 @@
 'use strict';
 
-adsApp.controller('CategoriesAdminController',
-    function CategoriesAdminController($scope, categoriesData, $rootScope, $location, authService, notifications) {
+adsApp.controller('TownsAdminController',
+    function TownsAdminController($scope, townsData, $rootScope, $location, authService, notifications) {
         var pageSize = 10;
         var startPage = 1;
         var sortByValue = 'Id';
         var oldSortValue = 'Id';
 
         $scope.sortBy = sortBy;
-        $scope.confirmDeleteCategory = confirmDeleteCategory;
+        $scope.confirmDeleteTown = confirmDeleteTown;
         $scope.goToEdit = goToEdit;
-        $scope.createCategory = createCategory;
-        $scope.editCategory = editCategory;
+        $scope.createTown = createTown;
+        $scope.editTown = editTown;
 
         $rootScope.$$listeners.pageChange = [];
         $rootScope.$on('pageChange', function (event, page) {
             startPage = page;
-            $scope.getCategories();
+            $scope.getTowns();
         });
 
         $rootScope.$on('adsPerPage', function (event, users) {
             pageSize = users;
-            $scope.getCategories();
+            $scope.getTowns();
         });
 
         $scope.$on('sendNumPages', function (event, numPages) {
             $rootScope.$broadcast('setNumPages', numPages);
         });
 
-        $scope.getCategories = function () {
-            categoriesData.getAllWithSort(pageSize, startPage, sortByValue)
+        $scope.getTowns = function () {
+            townsData.getAllWithSort(pageSize, startPage, sortByValue)
                 .then(function (data) {
                     $scope.$emit('sendNumPages', data.numPages);
-                    $scope.categories = data.categories;
+                    $scope.towns = data.towns;
                 })
         }
 
-        function editCategory(categoryInfo){
-            var data = { name: categoryInfo.username };
+        function editTown(townInfo){
+            var data = { name: townInfo.username };
             authService.authorizedRequest(
                 'PUT',
-                'categories/' + categoryInfo.id,
+                'towns/' + townInfo.id,
                 data,
                 function(data){
-                    $location.path('admin/categories');
-                    notifications.success("Successfully edited the category.")
+                    $location.path('admin/towns');
+                    notifications.success("Successfully edited the town.")
                 },
                 function(error){
                     console.log(error);
@@ -52,26 +52,26 @@ adsApp.controller('CategoriesAdminController',
             )
         }
 
-        $scope.categoryInfo = $rootScope.categoryInfo;
-        delete $rootScope.categoryInfo;
+        $scope.townInfo = $rootScope.townInfo;
+        delete $rootScope.townInfo;
 
-        function goToEdit(category){
-            $location.path('/admin/categories/edit');
-            $rootScope.categoryInfo = category;
+        function goToEdit(town){
+            $location.path('/admin/towns/edit');
+            $rootScope.townInfo = town;
         }
 
-        function confirmDeleteCategory(category){
-            $rootScope.$emit('confirmDeleteCategory', category);
+        function confirmDeleteTown(town){
+            $rootScope.$emit('confirmDeleteTown', town);
         }
 
-        function createCategory(categoryInfo){
+        function createTown(townInfo){
             authService.authorizedRequest(
                 'POST',
-                'categories/',
-                categoryInfo,
+                'towns/',
+                townInfo,
                 function(data){
-                    $location.path('admin/categories');
-                    notifications.success("Successfully created the category.")
+                    $location.path('admin/towns');
+                    notifications.success("Successfully created the town.")
                 },
                 function(error){
                     console.log(error);
@@ -90,7 +90,7 @@ adsApp.controller('CategoriesAdminController',
                 $(event.target).find('span').text('▲');
                 oldSortValue = value;
             }
-            $scope.getCategories();
+            $scope.getTowns();
         }
     }
 )
