@@ -2,17 +2,41 @@
 
 adsApp.controller('ListMyAdsController',
     function ListMyAdsController($scope, $rootScope, adsData){
+        var status = '';
+        var startPage = '';
+        var pageSize = 5;
 
-        listAll();
 
         $rootScope.$on('added', function(){
-            listAll();
+            $scope.listAll();
         });
 
-        function listAll() {
-            adsData.getAll('', '', '', '', true)
+        $rootScope.$on('statusChanged', function(event, adsStatus){
+            status = adsStatus;
+            $scope.listAll();
+        });
+
+        $rootScope.$$listeners.pageChange = [];
+        $rootScope.$on('pageChange', function(event, page){
+            startPage = page;
+            $scope.listAll();
+        });
+
+        $rootScope.$on('adsPerPage', function(event, ads){
+            console.log(ads);
+            pageSize = ads;
+            $scope.listAll();
+        });
+
+        $scope.$on('sendNumPages', function(event, numPages){
+            $rootScope.$broadcast('setNumPages', numPages);
+        });
+
+        $scope.listAll = function() {
+            adsData.getAll('', '', pageSize, startPage, status, true)
                 .then(function (data) {
                     console.log(data);
+                    $scope.$emit('sendNumPages', data.numPages);
                     $scope.ads = data.ads;
                 })
         }

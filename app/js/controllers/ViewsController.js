@@ -26,7 +26,9 @@ adsApp.controller('ViewsController',
             "townsTable": "../app/templates/admin/towns-table.html",
             "confirmDeleteTown": "../app/templates/admin/confirm-delete-town-template.html",
             "editTown": "../app/templates/admin/edit-town-template.html",
-            "createTown": "../app/templates/admin/create-town-template.html"
+            "createTown": "../app/templates/admin/create-town-template.html",
+            "adsPerPage": "../app/templates/adsPerPage-template.html",
+            "sortBy": "../app/templates/sortBy-template.html"
         }
     }
 )

@@ -1,4 +1,4 @@
-<div class="ads-panel" ng-controller="ListMyAdsController">
+<div class="ads-panel" ng-controller="ListMyAdsController" ng-init="listAll()">
     <div class="panel panel-default" id="{{ad.id}}" ng-repeat="ad in ads | statusFilter:status">
         <div ng-include="template.confirmDelete" ng-controller="ConfirmDeleteController"></div>
         <div class="panel-body">
@@ -8,8 +8,10 @@
                 </h5>
             </header>
             <section class="row">
-                <div class="image-container jumbotron col-md-3">
-                    <img ng-src="{{ ad.imageDataUrl }}" src="../app/img/wutu.jpg"/>
+                <div class="status-image-container col-md-3">
+                    <div class="image-container jumbotron">
+                        <img ng-src="{{ ad.imageDataUrl }}" src="../app/img/wutu.jpg"/>
+                    </div>
                 </div>
 
                 <div class="ad-info col-md-5">

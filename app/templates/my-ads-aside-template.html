@@ -1,12 +1,13 @@
-<aside>
+<aside ng-controller="MyAdsAsideController">
     <div class="panel panel-default">
         <div class="panel-heading"><h5>My Ads</h5></div>
         <div class="panel-body">
             <ul class="nav nav-pills nav-stacked myads">
-                <li id="Published" ng-click="changeStatus('Published')"><a href="">Published</a></li>
-                <li id="WaitingApproval" ng-click="changeStatus('WaitingApproval')"><a href="">Waiting Approval</a></li>
-                <li id="Inactive" ng-click="changeStatus('Inactive')"><a href="">Inactive</a></li>
-                <li id="Rejected" ng-click="changeStatus('Rejected')"><a href="">Rejected</a></li>
+                <li id="status-" class="active" ng-click="changeStatus('')"><a href="">All</a></li>
+                <li id="status-Published" ng-click="changeStatus('Published')"><a href="">Published</a></li>
+                <li id="status-WaitingApproval" ng-click="changeStatus('WaitingApproval')"><a href="">Waiting Approval</a></li>
+                <li id="status-Inactive" ng-click="changeStatus('Inactive')"><a href="">Inactive</a></li>
+                <li id="status-Rejected" ng-click="changeStatus('Rejected')"><a href="">Rejected</a></li>
             </ul>
         </div>
     </div>

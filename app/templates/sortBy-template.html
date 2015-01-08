@@ -1,0 +1,19 @@
+<div class="text-center vert-offset-top-1" ng-controller="SortByController">
+    <label class="ads-per-page">Sort by</label>
+    <div class="btn-group">
+        <a href="" class="btn btn-default disabled">{{ sortBy }}</a>
+        <div class="btn-group">
+            <a href="" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                Select
+                <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+                <li ng-click="setSortBy('Date')"><a href="">Date</a></li>
+                <li ng-click="setSortBy('Title')"><a href="">Title</a></li>
+                <li ng-click="setSortBy('Id')"><a href="">Id</a></li>
+                <li ng-click="setSortBy('Owner.Name')"><a href="">Owner Name</a></li>
+                <li ng-click="setSortBy('Owner.Email')"><a href="">Owner Email</a></li>
+            </ul>
+        </div>
+    </div>
+</div>

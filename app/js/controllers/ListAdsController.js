@@ -6,6 +6,8 @@ adsApp.controller('ListAdsController',
         var categoryId = '';
         var pageSize = 5;
         var startPage = 1;
+        var status = '';
+        var sortBy = 'Date';
 
         $rootScope.$on('categoryClicked', function(event, category){
             categoryId = category;
@@ -14,6 +16,16 @@ adsApp.controller('ListAdsController',
 
         $rootScope.$on('townClicked', function(event, town){
             townId = town;
+            $scope.getAds();
+        });
+
+        $rootScope.$on('statusChanged', function(event, adsStatus){
+            status = adsStatus;
+            $scope.getAds();
+        });
+
+        $rootScope.$on('sortBy', function(event, sortByExp){
+            sortBy = sortByExp;
             $scope.getAds();
         });
 
@@ -36,14 +48,14 @@ adsApp.controller('ListAdsController',
         $scope.getAds = function(){
             console.log(session.isAdmin());
             if(session.isAdmin()){
-                adsData.getAllAsAdmin(townId, categoryId, pageSize, startPage, '')
+                adsData.getAllAsAdmin(townId, categoryId, pageSize, startPage, status, sortBy)
                     .then(function(data){
                         $scope.$emit('sendNumPages', data.numPages);
                         console.log(data.ads);
                         $scope.ads = data.ads;
                     })
             } else {
-                adsData.getAll(townId, categoryId, pageSize, startPage)
+                adsData.getAll(townId, categoryId, pageSize, startPage, '', sortBy)
                     .then(function (data) {
                         $scope.$emit('sendNumPages', data.numPages);
                         console.log(data.ads);

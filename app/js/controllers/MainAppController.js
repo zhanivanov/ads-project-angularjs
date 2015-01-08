@@ -93,19 +93,17 @@ adsApp.controller('MainAppController',
                 $('#myads').addClass('active');
             } else if(!(route.localeCompare('#/addnewad'))){
                 $('#addnewad').addClass('active');
-            } else{
+            } else if(!(route.localeCompare('#/profile'))){
                 $('#profile').addClass('active');
+            } else if(!(route.localeCompare('#/admin/home'))){
+                $('#ads').addClass('active');
+            } else if(!(route.localeCompare('#/admin/users'))){
+                $('#users').addClass('active');
+            } else if(!(route.localeCompare('#/admin/categories'))){
+                $('#categories').addClass('active');
+            } else{
+                $('#towns').addClass('active');
             }
-        }
-
-        $scope.status = "undefined";
-
-        $scope.changeStatus = function(status) {
-            $scope.status = status;
-
-            var selector = '#' + status;
-            $('.myads').children().removeClass('active');
-            $(selector).addClass('active');
         }
     }
 )

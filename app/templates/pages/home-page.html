@@ -3,23 +3,8 @@
     <div ng-include="template.navigationAside" ng-if="currentUser.username && !isAdmin"></div>
     <div ng-include="template.adminNav" ng-if="isAdmin"></div>
     <div ng-include="template.myAdsAside" ng-if="isAdmin"></div>
+    <div ng-include="template.adsPerPage"></div>
+    <div ng-include="template.sortBy" ng-if="isAdmin"></div>
 </div>
 <div ng-include="template.allAdsMain"></div>
 <div ng-include="template.townsAside"></div>
-<div class="text-center" ng-controller="AdsPerPageController">
-    <label class="ads-per-page">Ads per page</label>
-    <div class="btn-group">
-        <a href="" class="btn btn-default disabled">{{adsPerPage}}</a>
-        <div class="btn-group">
-            <a href="" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                Select
-                <span class="caret"></span>
-            </a>
-            <ul class="dropdown-menu">
-                <li ng-click="setAdsPerPage(5)"><a href="">5</a></li>
-                <li ng-click="setAdsPerPage(10)"><a href="">10</a></li>
-                <li ng-click="setAdsPerPage(15)"><a href="">15</a></li>
-            </ul>
-        </div>
-    </div>
-</div>

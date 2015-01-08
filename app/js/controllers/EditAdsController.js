@@ -136,6 +136,7 @@ adsApp.controller('EditAdsController',
         }
 
         function edit(adInfo, date){
+            var pathUrl = '/myads';
             if(adInfo.imageDataUrl != null && adInfo.imageDataUrl != undefined) {
                 if (!(adInfo.imageDataUrl).localeCompare('../app/img/no-available-image.png')) {
                     adInfo.imageDataUrl = null;
@@ -145,6 +146,7 @@ adsApp.controller('EditAdsController',
                 adInfo.date = new Date(adInfo.formattedDate);
                 adInfo.date.setDate(adInfo.date.getDate() + 1);
                 delete adInfo["formattedDate"];
+                pathUrl = '/admin/home';
             }
             authService.authorizedRequest(
                 'PUT',
@@ -152,7 +154,7 @@ adsApp.controller('EditAdsController',
                 adInfo,
                 function(data){
                     notifications.success("Ad edited successfully!");
-                    $location.path('/admin/home');
+                    $location.path(pathUrl);
                 },
                 function(error){
                     console.log(error);
