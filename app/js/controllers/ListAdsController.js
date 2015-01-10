@@ -46,19 +46,16 @@ adsApp.controller('ListAdsController',
         });
 
         $scope.getAds = function(){
-            console.log(session.isAdmin());
             if(session.isAdmin()){
                 adsData.getAllAsAdmin(townId, categoryId, pageSize, startPage, status, sortBy)
                     .then(function(data){
                         $scope.$emit('sendNumPages', data.numPages);
-                        console.log(data.ads);
                         $scope.ads = data.ads;
                     })
             } else {
                 adsData.getAll(townId, categoryId, pageSize, startPage, '', sortBy)
                     .then(function (data) {
                         $scope.$emit('sendNumPages', data.numPages);
-                        console.log(data.ads);
                         $scope.ads = data.ads;
                     })
             }

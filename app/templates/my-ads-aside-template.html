@@ -1,6 +1,6 @@
 <aside ng-controller="MyAdsAsideController">
     <div class="panel panel-default">
-        <div class="panel-heading"><h5>My Ads</h5></div>
+        <div class="panel-heading"><h5><span ng-if="!isAdmin">My </span>Ads</h5></div>
         <div class="panel-body">
             <ul class="nav nav-pills nav-stacked myads">
                 <li id="status-" class="active" ng-click="changeStatus('')"><a href="">All</a></li>

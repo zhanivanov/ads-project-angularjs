@@ -30,9 +30,10 @@ adsApp.controller('UsersController',
             usersDataSrvc.getAll(pageSize, startPage, sortByValue)
                 .then(function (data) {
                     $scope.$emit('sendNumPages', data.numPages);
+                    console.log(data.users);
                     $scope.users = data.users;
                 })
-        }
+        };
 
         function goToEdit(user){
             $rootScope.user = user;
@@ -54,7 +55,6 @@ adsApp.controller('UsersController',
                 $(event.target).find('span').text('▲');
                 oldSortValue = value;
             }
-            $scope.getUsers();
         }
     }
 )
