@@ -75,6 +75,7 @@ adsApp.controller('EditProfileController',
                     $scope.userInfo.townId = data.townId;
                 },
                 function(error){
+                    notifications.error("Some error occurred!");
                     console.log(error);
                 }
             )

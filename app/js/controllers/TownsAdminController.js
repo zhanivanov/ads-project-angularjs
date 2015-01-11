@@ -47,6 +47,7 @@ adsApp.controller('TownsAdminController',
                     notifications.success("Successfully edited the town.")
                 },
                 function(error){
+                    notifications.error("Some error occurred!");
                     console.log(error);
                 }
             )
@@ -74,6 +75,7 @@ adsApp.controller('TownsAdminController',
                     notifications.success("Successfully created the town.")
                 },
                 function(error){
+                    notifications.error("Some error occurred!");
                     console.log(error);
                 }
             )

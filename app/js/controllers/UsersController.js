@@ -30,7 +30,6 @@ adsApp.controller('UsersController',
             usersDataSrvc.getAll(pageSize, startPage, sortByValue)
                 .then(function (data) {
                     $scope.$emit('sendNumPages', data.numPages);
-                    console.log(data.users);
                     $scope.users = data.users;
                 })
         };

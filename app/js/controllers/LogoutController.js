@@ -14,7 +14,8 @@ adsApp.controller('LogoutController',
                 //window.location.reload();
             },
             function(error){
-                //console.log(error);
+                notifications.error("Some error occurred!");
+                console.log(error);
             })
 
         }

@@ -52,6 +52,7 @@ adsApp.controller('EditAdsController',
                     notifications.info("You approved the ad successfully.");
                 },
                 function(error){
+                    notifications.error("Some error occurred!");
                     console.log(error);
                 }
             )
@@ -67,6 +68,7 @@ adsApp.controller('EditAdsController',
                     notifications.error("You rejected the ad successfully.");
                 },
                 function(error){
+                    notifications.error("Some error occurred!");
                     console.log(error);
                 }
             )
@@ -82,6 +84,7 @@ adsApp.controller('EditAdsController',
                     notifications.info("Successfully deactivated the ad.")
                 },
                 function(error){
+                    notifications.error("Some error occurred!");
                     console.log(error);
                 }
             )
@@ -97,6 +100,7 @@ adsApp.controller('EditAdsController',
                     notifications.success("Successfully published the ad.")
                 },
                 function(error){
+                    notifications.error("Some error occurred!");
                     console.log(error);
                 }
             )
@@ -120,6 +124,7 @@ adsApp.controller('EditAdsController',
                     }
                 },
                 function(error){
+                    notifications.error("Some error occurred!");
                     console.log(error);
                 }
             )
@@ -157,6 +162,7 @@ adsApp.controller('EditAdsController',
                     $location.path(pathUrl);
                 },
                 function(error){
+                    notifications.error("Some error occurred!");
                     console.log(error);
                 }
             )

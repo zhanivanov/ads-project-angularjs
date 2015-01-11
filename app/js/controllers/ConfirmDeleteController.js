@@ -29,7 +29,7 @@ adsApp.controller('ConfirmDeleteController',
                 'ads/' + id,
                 null,
                 function(data){
-                    notifications.error("Successfully deleted the ad.");
+                    notifications.info("Successfully deleted the ad.");
                     $('#' + id).remove();
                 },
                 function(error){
@@ -44,10 +44,11 @@ adsApp.controller('ConfirmDeleteController',
                 'user/' + username,
                 null,
                 function (data) {
-                    notifications.error("Successfully deleted the user.");
+                    notifications.info("Successfully deleted the user.");
                     $('#user-' + username).remove();
                 },
                 function (error) {
+                    notifications.error("Some error occurred!");
                     console.log(error);
                 }
             )
@@ -59,7 +60,7 @@ adsApp.controller('ConfirmDeleteController',
                 'categories/' + id,
                 null,
                 function (data) {
-                    notifications.error("Successfully deleted the category.");
+                    notifications.info("Successfully deleted the category.");
                     $('#category-' + id).remove();
                 },
                 function (error) {
@@ -75,7 +76,7 @@ adsApp.controller('ConfirmDeleteController',
                 'towns/' + id,
                 null,
                 function (data) {
-                    notifications.error("Successfully deleted the town.");
+                    notifications.info("Successfully deleted the town.");
                     $('#town-' + id).remove();
                 },
                 function (error) {

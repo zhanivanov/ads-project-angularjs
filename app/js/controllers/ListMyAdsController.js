@@ -34,7 +34,6 @@ adsApp.controller('ListMyAdsController',
         $scope.listAll = function() {
             adsData.getAll('', '', pageSize, startPage, status, 'Date', true)
                 .then(function (data) {
-                    console.log(data.ads);
                     $scope.$emit('sendNumPages', data.numPages);
                     $scope.ads = data.ads;
                 })

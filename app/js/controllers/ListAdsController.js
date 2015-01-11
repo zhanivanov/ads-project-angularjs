@@ -7,7 +7,7 @@ adsApp.controller('ListAdsController',
         var pageSize = 5;
         var startPage = 1;
         var status = '';
-        var sortBy = 'Date';
+        var sortBy = '-Date';
 
         $rootScope.$on('categoryClicked', function(event, category){
             categoryId = category;
@@ -25,7 +25,12 @@ adsApp.controller('ListAdsController',
         });
 
         $rootScope.$on('sortBy', function(event, sortByExp){
-            sortBy = sortByExp;
+            if(!sortByExp.localeCompare('Date')){
+                sortBy = '-' + sortByExp;
+            } else{
+                sortBy = sortByExp;
+            }
+
             $scope.getAds();
         });
 
