@@ -23,7 +23,6 @@ adsApp.controller('ListMyAdsController',
         });
 
         $rootScope.$on('adsPerPage', function(event, ads){
-            console.log(ads);
             pageSize = ads;
             $scope.listAll();
         });
@@ -33,9 +32,9 @@ adsApp.controller('ListMyAdsController',
         });
 
         $scope.listAll = function() {
-            adsData.getAll('', '', pageSize, startPage, status, true)
+            adsData.getAll('', '', pageSize, startPage, status, 'Date', true)
                 .then(function (data) {
-                    console.log(data);
+                    console.log(data.ads);
                     $scope.$emit('sendNumPages', data.numPages);
                     $scope.ads = data.ads;
                 })

@@ -36,7 +36,6 @@ adsApp.controller('ListAdsController',
         });
 
         $rootScope.$on('adsPerPage', function(event, ads){
-            console.log(ads);
             pageSize = ads;
             $scope.getAds();
         });
